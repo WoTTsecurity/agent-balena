@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends libssl-dev libffi-dev && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core && \
     apt-get clean
 
 RUN mkdir -p /opt/wott/certs
