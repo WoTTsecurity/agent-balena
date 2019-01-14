@@ -1,13 +1,14 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-run
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-build
 WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential libssl-dev libffi-dev git-core && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core && \
     apt-get clean
 
 RUN mkdir -p /opt/wott/certs
 
+RUN pip install -U pip
 RUN pip install git+https://github.com/WoTTsecurity/agent.git@master
 
 CMD wott-agent
