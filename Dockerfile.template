@@ -11,6 +11,9 @@ RUN mkdir -p /opt/wott/certs
 RUN pip install -U pip
 RUN pip install git+https://github.com/WoTTsecurity/agent.git@master
 
+# Balena specific path override
+ENV CERT_PATH=/data/wott/certs
+
 COPY bin/start.sh /start.sh
 
 CMD /start.sh
