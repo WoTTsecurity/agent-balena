@@ -11,4 +11,6 @@ RUN mkdir -p /opt/wott/certs
 RUN pip install -U pip
 RUN pip install git+https://github.com/WoTTsecurity/agent.git@master
 
-CMD wott-agent
+COPY bin/start.sh /start.sh
+
+CMD /start.sh
