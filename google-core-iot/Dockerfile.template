@@ -8,24 +8,19 @@ ENV REGISTRY_ID=
 ENV CLOUD_REGION=
 ENV PROJECT_ID=
 
-#RUN apt-get update && \
-#    apt-get install -y --no-install-recommends build-essential libssl-dev libffi-dev libltdl-dev wget && \
-#    apt-get clean
-
 RUN wget -q https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/cloudiot_mqtt_example.py && \
     wget -q https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/requirements.txt && \
     wget -q https://pki.google.com/roots.pem
 RUN pip install -U pip
-RUN pip install --no-cache-dir --no-use-pep517 -r requirements.txt
 
-CMD python cloudiot_mqtt_example.py \
-    --registry_id=${REGISTRY_ID} \
-    --cloud_region=${CLOUD_REGION} \
-    --project_id=${PROJECT_ID} \
-    --device_id=${DEVICE_ID} \
-    --algorithm=ES256 \
-    --private_key_file=/data/wott/certs/client.key \
-    --ca_certs=roots.pem \
-     --message_type state \
-    device_demo
+# We need to pass on `--no-use-pep517` due to a bug in pip:
+# https://github.com/pypa/pip/issues/6197
 
+RUN pip install \
+    --no-cache-dir \
+    --no-use-pep517 \
+    -r requirements.txt
+
+COPY start.sh /start.sh
+
+CMD /start.sh
