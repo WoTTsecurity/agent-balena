@@ -8,7 +8,9 @@ RUN apt-get update && \
     apt-get clean
 
 RUN pip install -U pip
-RUN pip install git+https://github.com/WoTTsecurity/agent.git@47266191ee8551cc1553feaa0c092f51ed5f3a1a
+
+# Don't pin releases yet
+RUN pip install git+https://github.com/WoTTsecurity/agent.git@master
 
 # Balena specific path override
 ENV CERT_PATH=/data/wott/certs
