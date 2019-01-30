@@ -9,7 +9,7 @@ In order for the device to be able to connect, you need to define the following 
  * PROJECT_ID
  * DEVICE_ID
 
-All but the DEVICE_ID can be set fleet-wide.
+All but the "DEVICE_ID" can be set fleet-wide.
 
 ## Enrolling the device in Google Core IoT
 
