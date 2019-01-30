@@ -11,7 +11,4 @@ In order for the device to be able to connect, you need to define the following 
 
 All but the "DEVICE_ID" can be set fleet-wide.
 
-## Enrolling the device in Google Core IoT
-
-@TODO
-
+For details, please see [this documentation](https://github.com/WoTTsecurity/agent/tree/master/docs/examples/google-core-iot)
