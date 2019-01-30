@@ -1,0 +1,14 @@
+version: '2'
+volumes:
+    resin-data:
+services:
+    wott-agent:
+        builds: ./wott-agent
+        volumes:
+            - 'resin-data:/data'
+    google-core-iot:
+        build: ./google-core-iot
+        depends_on:
+        - wott-agent
+        volumes:
+            - 'resin-data:/data'
