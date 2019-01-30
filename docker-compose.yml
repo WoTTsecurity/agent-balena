@@ -3,7 +3,7 @@ volumes:
     resin-data:
 services:
     wott-agent:
-        builds: ./wott-agent
+        build: ./wott-agent
         volumes:
             - 'resin-data:/data'
     google-core-iot:
