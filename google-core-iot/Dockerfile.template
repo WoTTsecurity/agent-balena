@@ -1,4 +1,5 @@
 FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-build
+
 WORKDIR /usr/src/app
 
 # Declare required arguments
@@ -14,6 +15,7 @@ RUN apt-get update && \
 RUN wget https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/cloudiot_mqtt_example.py && \
     wget https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/requirements.txt && \
     wget https://pki.google.com/roots.pem
+RUN pip install -U pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD python cloudiot_mqtt_example.py \
