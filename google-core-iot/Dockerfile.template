@@ -12,11 +12,11 @@ ENV PROJECT_ID=
 #    apt-get install -y --no-install-recommends build-essential libssl-dev libffi-dev libltdl-dev wget && \
 #    apt-get clean
 
-RUN wget https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/cloudiot_mqtt_example.py && \
-    wget https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/requirements.txt && \
-    wget https://pki.google.com/roots.pem
+RUN wget -q https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/cloudiot_mqtt_example.py && \
+    wget -q https://raw.githubusercontent.com/GoogleCloudPlatform/python-docs-samples/master/iot/api-client/mqtt_example/requirements.txt && \
+    wget -q https://pki.google.com/roots.pem
 RUN pip install -U pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --no-use-pep517 -r requirements.txt
 
 CMD python cloudiot_mqtt_example.py \
     --registry_id=${REGISTRY_ID} \
