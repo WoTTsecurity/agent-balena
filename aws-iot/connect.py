@@ -47,7 +47,7 @@ print('Publishing to {}'.format(MQTT_TOPIC))
 for r in range(0, 20):
     myMQTTClient.publish(
         MQTT_TOPIC,
-        "Random Payload {}".format(randint(0, 100)),
+        {'Random Payload':  '{}'.format(randint(0, 100))},
         0
     )
     sleep(10)
