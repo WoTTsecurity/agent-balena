@@ -12,7 +12,7 @@ https://github.com/aws/aws-iot-device-sdk-python
 
 # Read settings from environment variables
 AWS_HOST = os.getenv("AWS_HOST")
-AWS_PORT = int(os.getenv("AWS_PORT", "8883"))
+AWS_PORT = int(os.getenv("AWS_PORT"))
 AWS_CLIENT_ID = os.getenv("AWS_CLIENT_ID")
 CA_PATH = os.getenv("CA_PATH")
 CERT_PATH = os.getenv("CERT_PATH")
