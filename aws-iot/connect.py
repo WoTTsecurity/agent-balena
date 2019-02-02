@@ -17,7 +17,7 @@ AWS_CLIENT_ID = os.getenv("AWS_CLIENT_ID")
 CA_PATH = os.getenv("CA_PATH")
 CERT_PATH = os.getenv("CERT_PATH")
 KEY_PATH = os.getenv("KEY_PATH")
-MQTT_TOPIC = os.getenv("MQTT_TOPIC", "MyTopic")
+MQTT_TOPIC = os.getenv("MQTT_TOPIC")
 
 
 myMQTTClient = AWSIoTMQTTClient(AWS_CLIENT_ID)

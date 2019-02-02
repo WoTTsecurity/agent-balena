@@ -9,7 +9,7 @@ ENV AWS_CLIENT_ID=
 ENV CA_PATH=/usr/src/app/AmazonRootCA1.pem
 ENV CERT_PATH=/data/wott/certs/client.crt
 ENV KEY_PATH=/data/wott/certs/client.key
-ENV MQTT_TOPIC=
+ENV MQTT_TOPIC=myTopic
 
 RUN wget -q https://www.amazontrust.com/repository/AmazonRootCA1.pem
 RUN pip install -U pip
