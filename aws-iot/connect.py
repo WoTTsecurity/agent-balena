@@ -21,7 +21,7 @@ MQTT_TOPIC = os.getenv("MQTT_TOPIC", "MyTopic")
 
 
 myMQTTClient = AWSIoTMQTTClient(AWS_CLIENT_ID)
-myMQTTClient.configureEndpoint(AWS_HOST, 8883)
+myMQTTClient.configureEndpoint(AWS_HOST, AWS_PORT)
 myMQTTClient.configureCredentials(
     CA_PATH,
     KEY_PATH,
@@ -43,7 +43,11 @@ myMQTTClient.configureMQTTOperationTimeout(5)
 myMQTTClient.connect()
 
 for r in range(0, 20):
-    myMQTTClient.publish(MQTT_TOPIC, randint(0, 100), 0)
+    myMQTTClient.publish(
+        MQTT_TOPIC,
+        "{}".format(randint(0, 100)),
+        0
+    )
     sleep(10)
 
 myMQTTClient.disconnect()
