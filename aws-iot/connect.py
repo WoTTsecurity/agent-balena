@@ -45,11 +45,12 @@ myMQTTClient.connect()
 print('Publishing to {}'.format(MQTT_TOPIC))
 
 for r in range(0, 20):
-    myMQTTClient.publish(
-        MQTT_TOPIC,
-        "{}".format(randint(0, 100)),
-        0
-    )
+    myMQTTClient.publish("myTopic", "myPayload", 0)
+    #myMQTTClient.publish(
+    #    MQTT_TOPIC,
+    #    "{}".format(randint(0, 100)),
+    #    0
+    #)
     sleep(10)
 
 myMQTTClient.disconnect()
