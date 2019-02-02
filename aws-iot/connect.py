@@ -1,5 +1,5 @@
 import os
-
+import json
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 from time import sleep
 from random import randint
@@ -47,7 +47,7 @@ print('Publishing to {}'.format(MQTT_TOPIC))
 for r in range(0, 20):
     myMQTTClient.publish(
         MQTT_TOPIC,
-        {'Random Payload':  '{}'.format(randint(0, 100))},
+        json.dumps({'Random Payload':  '{}'.format(randint(0, 100))}),
         0
     )
     sleep(10)
