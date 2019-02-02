@@ -42,6 +42,8 @@ myMQTTClient.configureMQTTOperationTimeout(5)
 
 myMQTTClient.connect()
 
+print('Publishing to {}'.format(MQTT_TOPIC))
+
 for r in range(0, 20):
     myMQTTClient.publish(
         MQTT_TOPIC,
