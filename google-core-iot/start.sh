@@ -16,8 +16,5 @@ while true; do
         --ca_certs=roots.pem \
         --message_type state \
         device_demo
-    sleep 30
+    sleep 120
 done
-
-
-
