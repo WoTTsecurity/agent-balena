@@ -12,3 +12,9 @@ services:
         - wott-agent
         volumes:
             - 'resin-data:/data'
+    aws-iot:
+        build: ./aws-iot
+        depends_on:
+        - wott-agent
+        volumes:
+            - 'resin-data:/data'
