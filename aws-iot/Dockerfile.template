@@ -7,8 +7,8 @@ ENV AWS_HOST=
 ENV AWS_PORT=8883
 ENV AWS_CLIENT_ID=
 ENV CA_PATH=/usr/src/app/AmazonRootCA1.pem
-ENV CERT_PATH=/data/wott/client.crt
-ENV KEY_PATH=/data/wott/client.key
+ENV CERT_PATH=/data/wott/certs/client.crt
+ENV KEY_PATH=/data/wott/certs/client.key
 ENV MQTT_TOPIC=
 
 RUN wget -q https://www.amazontrust.com/repository/AmazonRootCA1.pem
