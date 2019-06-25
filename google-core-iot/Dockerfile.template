@@ -1,4 +1,4 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-build
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.5-stretch-build
 
 WORKDIR /usr/src/app
 

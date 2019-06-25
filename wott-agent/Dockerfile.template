@@ -1,20 +1,17 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3-stretch-build
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.5-stretch-build
+
 
 WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core pkg-config libsystemd-dev xtables-addons-common libip4tc0 libiptc0 libip6tc0 iptables && \
     apt-get clean
+RUN pip3 install --upgrade setuptools pip
 
-RUN pip install -U pip
-
-# Don't pin releases yet
-RUN pip install git+https://github.com/WoTTsecurity/agent.git@7b399029c8da911bd1ef46aabe1079ce815f71b4
+RUN pip3 install git+https://github.com/WoTTsecurity/agent.git@master
 
 # Balena specific path override
 ENV CERT_PATH=/data/wott/certs
 
-COPY start.sh /start.sh
-
-CMD /start.sh
+CMD wott-agent daemon
