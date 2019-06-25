@@ -5,11 +5,11 @@ WORKDIR /usr/src/app
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core pkg-config libsystemd-dev xtables-addons-common libip4tc0 libiptc0 libip6tc0 && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev git-core pkg-config libsystemd-dev xtables-addons-common libip4tc0 libiptc0 libip6tc0 iptables && \
     apt-get clean
 RUN pip3 install --upgrade setuptools pip
 
-RUN pip3 install git+https://github.com/GreatFruitOmsk/agent.git@fix-snap
+RUN pip3 install git+https://github.com/WoTTsecurity/agent.git@master
 
 # Balena specific path override
 ENV CERT_PATH=/data/wott/certs
